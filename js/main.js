@@ -1,8 +1,9 @@
 //Функция, возвращающая случайное целое число из переданного диапазона включительно
 const getRandomInteger = function (min, max) {
-  // if (min || max < 0  || min >= max) {
-  //   throw new Error('Минимальное число отрицательное или маинимальное число больше максимального');
-  // }
+  if (max < 0  || min >= max) {
+    throw new Error('Минимальное число отрицательное или маинимальное число больше максимального');
+  }
+
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -42,30 +43,41 @@ const getRandomArrayElement = (elements) => {
   return elements[getRandomInteger(0, elements.length - 1)];
 };
 
-const createComments = () => {
+const createComment = (userId) => {
   return {
-    commentID: getRandomInteger(1, 25),
-    avatar: 'img/avatar-' + getRandomInteger(0, 6) + '.svg',
+    id: userId,
+    avatar: `img/avatar-${getRandomInteger(0, 6)}.svg`,
     message: getRandomArrayElement(MESSAGE),
     name: getRandomArrayElement(NAME),
   }
 }
 
-const similarComments = new Array(2).fill(null).map(() => createComments());
+const createCmments = (total) => {
+  const comments = [];
+  for(let i = 1; i <= total; i++) {
+    comments.push(createComment(i));
+  }
 
-const createImageDescription = () => {
+  return comments;
+};
+
+const createImageDescription = (id) => {
   return {
-    id: getRandomInteger(1, 25),
-    url: 'photos/' + getRandomInteger(1, 25) + '.jpg',
+    id: id,
+    url: `photos/${id}.jpg`,
     description: getRandomArrayElement(IMAGE_DESCRIPTIONS),
     likes: getRandomInteger(15, 200),
-    comments: similarComments,
+    comments: createCmments(getRandomInteger(0, 5)),
   };
 };
 
-const createDescriptionArray  = () => {
-  const similarPhotoDescriptions = new Array(25).fill(null).map(() => createImageDescription());
-  return similarPhotoDescriptions;
+const createDescriptions = (total) => {
+  const descriptions = [];
+  for(let i = 1; i <= total; i++) {
+    descriptions.push(createImageDescription(i));
+  }
+
+  return descriptions;
 };
 
-createDescriptionArray();
+createDescriptions(25);
