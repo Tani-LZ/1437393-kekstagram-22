@@ -6,9 +6,7 @@ const IMAGE_DESCRIPTIONS = [
   'описание фотографии3',
 ];
 
-export {IMAGE_DESCRIPTIONS};
-
-const MESSAGE = [
+const MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
@@ -17,9 +15,7 @@ const MESSAGE = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 
-export {MESSAGE};
-
-const NAME = [
+const NAMES = [
   'Артем',
   'Татьяна',
   'Анна',
@@ -27,24 +23,18 @@ const NAME = [
   'Оксана',
 ];
 
-export {NAME};
-
 const getRandomArrayElement = (elements) => {
   return elements[getRandomInteger(0, elements.length - 1)];
 };
-
-export {getRandomArrayElement};
 
 const createComment = (id) => {
   return {
     id: id,
     avatar: `img/avatar-${getRandomInteger(0, 6)}.svg`,
-    message: getRandomArrayElement(MESSAGE),
-    name: getRandomArrayElement(NAME),
+    message: getRandomArrayElement(MESSAGES),
+    name: getRandomArrayElement(NAMES),
   }
 }
-
-export {createComment};
 
 const createCmments = (total) => {
   const comments = [];
@@ -65,8 +55,6 @@ const createImageDescription = (id) => {
   };
 };
 
-export {createImageDescription};
-
 const createDescriptions = (total) => {
   const descriptions = [];
   for(let i = 1; i <= total; i++) {
@@ -76,6 +64,8 @@ const createDescriptions = (total) => {
   return descriptions;
 };
 
+export {IMAGE_DESCRIPTIONS, MESSAGES, NAMES};
+export {getRandomArrayElement};
+export {createComment};
+export {createImageDescription};
 export {createDescriptions};
-
-createDescriptions(25);
