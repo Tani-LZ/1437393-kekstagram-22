@@ -1,4 +1,4 @@
-import {getRandomInteger} from './utils.js';
+import {getRandomInteger, getRandomArrayElement} from './utils.js';
 
 const IMAGE_DESCRIPTIONS = [
   'описание фотографии',
@@ -22,10 +22,6 @@ const NAMES = [
   'Женя',
   'Оксана',
 ];
-
-const getRandomArrayElement = (elements) => {
-  return elements[getRandomInteger(0, elements.length - 1)];
-};
 
 const createComment = (id) => {
   return {
@@ -65,7 +61,4 @@ const createDescriptions = (total) => {
 };
 
 export {IMAGE_DESCRIPTIONS, MESSAGES, NAMES};
-export {getRandomArrayElement};
-export {createComment};
-export {createImageDescription};
-export {createDescriptions};
+export {createComment, createImageDescription, createDescriptions};

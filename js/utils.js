@@ -9,8 +9,6 @@ const getRandomInteger = function (min, max) {
 
 getRandomInteger(0, 10);
 
-export {getRandomInteger};
-
 //Функция для проверки максимальной длины строки
 const getCommentLength = function (text, maxLength) {
   return text.length <= maxLength;
@@ -18,4 +16,9 @@ const getCommentLength = function (text, maxLength) {
 
 getCommentLength('Функция для проверки максимальной длины строки', 140)
 
-export {getCommentLength};
+//функция по поиску случайного элемента в переданном массиве
+const getRandomArrayElement = (elements) => {
+  return elements[getRandomInteger(0, elements.length - 1)];
+};
+
+export {getRandomInteger, getCommentLength, getRandomArrayElement};
