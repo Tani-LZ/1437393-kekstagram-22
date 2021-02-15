@@ -60,5 +60,4 @@ const createDescriptions = (total) => {
   return descriptions;
 };
 
-export {IMAGE_DESCRIPTIONS, MESSAGES, NAMES};
-export {createComment, createImageDescription, createDescriptions};
+export {createDescriptions};
