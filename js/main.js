@@ -1,5 +1,7 @@
-import {createComment, createImageDescription, createDescriptions} from './data.js';
+import {createDescriptions} from './data.js';
+import PicturePreview from './picture-preview.js';
 
-createComment();
-createImageDescription();
-createDescriptions(25);
+const DESCRIPTIONS_COUNT = 7;
+
+const descriptions = createDescriptions(DESCRIPTIONS_COUNT);
+PicturePreview.render(descriptions);
